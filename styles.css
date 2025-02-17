@@ -135,7 +135,7 @@ button {
 
 .polaroid > img {
     width: 100%;
-    height: auto;
+    height: 18rem;
 }
 
 .caption {
