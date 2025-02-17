@@ -44,7 +44,7 @@ function createHeartEffect(x, y) {
         
         setTimeout(() => {
             heart.remove();
-        }, 1000);
+        }, 300);
     }
 }
 
