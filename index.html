@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quer namorar comigo?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Tela Inicial com Barra de Progresso -->
+<div id="screen1" class="screen">
+    <h2>Ana Júlia, tenho uma pergunta para te fazer... ❤️</h2>
+    <button id="spaceBtn">Clique aqui!</button>
+    <div class="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+      <p id="instruction-text">Clique no botão ou pressione espaço para carregar!</p> <!-- Novo texto -->
+  
+</div>
+
+
+    <!-- Galeria de Fotos Estilo Post-it -->
+    <div id="screen2" class="screen hidden">
+        <h2>Motivos para dizer SIM 😍</h2>
+<div class="wrapper">
+
+  <div class="item">
+    <div class="polaroid"><img src="https://image.ibb.co/b8UJBc/administration_architecture_big_ben_221166.jpg">
+      <div class="caption">I Miss London</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="polaroid"><img src="https://image.ibb.co/mmyvrc/anniversary_balloons_birthday_68369.jpg">
+      <div class="caption">Love ballons</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="polaroid"><img src="https://image.ibb.co/hQaarc/antique_blur_camera_828378.jpg">
+      <div class="caption">Vintage life </div>
+    </div>
+  </div>
+
+</div>
+        <button class="next-btn" onclick="nextScreen()">Próximo</button>
+    </div>
+
+    <!-- Pergunta Principal -->
+    <div id="screen3" class="screen hidden">
+        <h1>Quer namorar comigo? 🥰</h1>
+        <div class="buttons">
+            <button id="yes" onclick="showResponse()">Sim 💖</button>
+            <button id="no" onmouseover="avoidNo()">Não ❌</button>
+        </div>
+        <p id="response" class="hidden"></p>
+    </div>
+
+    <!-- Tela Final -->
+    <div id="screen4" class="screen hidden">
+        <h1>Agora somos um casal oficial! 🎉💖</h1>
+        <button class="next-btn" onclick="confettiEffect()">Celebrar! 🎊</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
