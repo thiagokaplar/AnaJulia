@@ -4,12 +4,15 @@ body {
     font-family: 'Quicksand', sans-serif;
     text-align: center;
     background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    overflow-y: auto;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .screen {
@@ -17,15 +20,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
+    padding: 20px;
     transition: opacity 1s ease-in-out;
+    box-sizing: border-box;
 }
 
 #instruction-text {
-    font-size: 14px;
+    font-size: 16px;
     color: white;
-    margin-top: 8px;
     font-weight: 400;
 }
 
@@ -36,11 +40,12 @@ body {
 h1, h2 {
     color: #fff;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 24px;
 }
 
 #spaceBtn {
-    font-size: 18px;
-    padding: 10px 30px;
+    font-size: 16px;
+    padding: 12px 40px;
     background: linear-gradient(45deg, #ff4081, #ff80ab);
     color: white;
     border: none;
@@ -56,7 +61,8 @@ h1, h2 {
 }
 
 .progress-container {
-    width: 80%;
+    width: 90%;
+    max-width: 400px;
     background-color: #ddd;
     border-radius: 10px;
     margin-top: 20px;
@@ -69,15 +75,17 @@ h1, h2 {
     height: 100%;
     background: linear-gradient(45deg, #ff4081, #ff80ab);
     transition: width 0.3s;
+    border-radius: 10px;
 }
 
 button {
-    padding: 10px 30px;
-    font-size: 18px;
+    padding: 12px 40px;
+    font-size: 16px;
     border-radius: 30px;
     border: none;
     cursor: pointer;
     transition: transform 0.2s ease-in-out, background 0.3s;
+    margin: 10px;
 }
 
 #yes {
@@ -106,120 +114,102 @@ button {
 @keyframes floatUp {
     0% { transform: translateY(0) scale(1); opacity: 1; }
     100% { transform: translateY(-30px) scale(1.5); opacity: 0; }
-
 }
 
 .wrapper {
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 1rem;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .polaroid {
     background: #fff;
     padding: 1rem;
     box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+    max-width: 250px;
+    margin: 10px;
 }
 
-.polaroid > img{
-    max-width: 100%;
+.polaroid > img {
+    width: 100%;
     height: auto;
 }
 
 .caption {
-    font-size: 1.8rem;
+    font-size: 1rem;
     text-align: center;
-    line-height: 2em;
+    line-height: 1.2em;
 }
 
 .item {
-    width: 30%;
+    width: 45%;
+    max-width: 250px;
     display: inline-block;
-    margin-top: 2rem;
+    margin-top: 1rem;
     filter: grayscale(100%);
-    transition: all 0.35s;
-}
-
-.item .polaroid:before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    transition: all 0.35s;
 }
 
 .item:hover {
     filter: none;
     transform: scale(1, 1) rotate(0deg) !important;
+    transition: all 0.35s;
 }
 
-.item:hover .polaroid:before {
-    content: '';
+.confetti {
     position: absolute;
-    z-index: -1;
-    transform: rotate(0deg);
-    height: 90%;
-    width: 90%;
-    bottom: 0%;
-    right: 5%;
-    box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 1;
+    pointer-events: none;
 }
 
-@media screen and (max-width: 768px) {
-    /* Ajustes para telas menores que 768px (tablets e smartphones em modo paisagem) */
-    h1, h2 {
-        font-size: 24px;
-    }
-
-    #spaceBtn {
-        font-size: 16px;
-        padding: 12px 30px;
-    }
-
-    .progress-container {
-        width: 90%;
-    }
-
-    .wrapper {
-        padding: 0 1rem;
-    }
-
-    .item {
-        width: 45%; /* Ajuste para caber dois itens por linha */
-    }
-
-    .caption {
-        font-size: 1.5rem;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    /* Ajustes para telas menores que 480px (smartphones) */
+@media (max-width: 768px) {
     h1, h2 {
         font-size: 20px;
     }
 
-    #spaceBtn {
+    button {
         font-size: 14px;
-        padding: 10px 25px;
+        padding: 10px 30px;
     }
 
     .progress-container {
-        width: 90%;
-    }
-
-    .item {
-        width: 90%; /* Ajuste para caber apenas um item por linha */
-    }
-
-    .caption {
-        font-size: 1.3rem;
+        height: 15px;
     }
 
     .wrapper {
-        padding: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 18px;
     }
 
     button {
-        font-size: 16px;
+        font-size: 12px;
+        padding: 8px 20px;
+    }
+
+    .progress-container {
+        height: 12px;
+    }
+
+    .polaroid {
+        padding: 0.8rem;
+    }
+
+    .caption {
+        font-size: 0.9rem;
     }
 }
